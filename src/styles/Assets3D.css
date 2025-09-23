@@ -1,9 +1,9 @@
 .three-d-robot {
   position: absolute;
-  top: 8%;
-  right: 1%;
-  width: 500px;
-  height: 600px;
+  top: 22%;
+  right: 6%;
+  width: 480px;
+  height: 580px;
   z-index: 5;
 }
 

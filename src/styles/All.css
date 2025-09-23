@@ -56,18 +56,24 @@ body {
   z-index: 2;
 }
 
-/* Updated header to center navigation */
+/* Updated header to center navigation - made sticky */
 header.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  position: relative;
-  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: 2px;
   margin: 0;
@@ -81,7 +87,7 @@ header nav {
   top: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 /* New navbar button style based on template */
@@ -89,8 +95,8 @@ header nav a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 8rem;
-  height: 2rem;
+  width: 7.2rem;
+  height: 1.8rem;
   overflow: hidden;
   background-size: 300% 300%;
   cursor: pointer;
@@ -112,8 +118,8 @@ header nav a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
-  font-size: 9px;
-  letter-spacing: 2px;
+  font-size: 8px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   text-shadow: 0 0 4px white;
   position: relative;
@@ -121,8 +127,8 @@ header nav a {
 
 header nav a strong {
   z-index: 5;
-  font-size: 9px;
-  letter-spacing: 2px;
+  font-size: 8px;
+  letter-spacing: 1.5px;
   color: #ffffff;
   text-shadow: 0 0 4px white;
   position: relative;
@@ -177,12 +183,12 @@ header nav a .stars::before {
 header nav a .glow {
   position: absolute;
   display: flex;
-  width: 7rem;
+  width: 6rem;
 }
 
 header nav a .circle {
   width: 100%;
-  height: 20px;
+  height: 18px;
   filter: blur(1.5rem);
   animation: pulse_3011 4s infinite;
   z-index: -1;
@@ -268,18 +274,19 @@ header nav a:active .circle {
   }
 }
 
-/* Updated content layout to match MCODE design */
+/* Updated content layout - moved slightly to left */
 .content {
   position: relative;
-  padding: 120px 50px;
-  max-width: 800px;
+  padding: 160px 50px 120px 60px;
+  max-width: 500px;
+  z-index: 10;
 }
 
-/* Updated tag-box to purple badge style - made bigger with neon shadow */
+/* Updated tag-box positioning - moved to left */
 .tag-box {
   position: absolute;
-  top: 80px;
-  left: 50px;
+  top: 120px;
+  left: 60px;
   background: rgba(147, 51, 234, 0.3);
   border: 2px solid rgba(147, 51, 234, 0.8);
   border-radius: 25px;
@@ -295,62 +302,99 @@ header nav a:active .circle {
   text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
 }
 
-/* Updated title with red border box removed and smaller font */
+/* Updated title spacing - closer to hello world */
 .title {
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 700;
-  margin: 40px 0 20px 0;
+  margin: 20px 0 15px 0;
   line-height: 1.1;
   display: inline-block;
 }
 
 .description {
-  max-width: 600px;
+  max-width: 450px;
   line-height: 1.6;
-  margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 16px;
+  margin-bottom: 25px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.15),
+              0 0 30px rgba(255, 255, 255, 0.1);
 }
 
-/* Updated buttons - History Project with new template style */
+.description .goal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.description .goal-header svg {
+  width: 20px;
+  height: 20px;
+  stroke: rgba(255, 255, 255, 0.95);
+  fill: none;
+  stroke-width: 2;
+}
+
+.description .goal-content {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Updated buttons - smaller size with better spacing */
 .button {
   display: flex;
-  gap: 30px;
+  gap: 15px;
   margin-top: 30px;
 }
 
 .btn-history {
-  width: 9em;
+  width: 7.8em;
   position: relative;
-  height: 3em;
+  height: 2.4em;
   border: 3px ridge #149CEA;
   outline: none;
   background-color: #000;
   color: white;
   transition: 1s;
-  border-radius: 0.3em;
-  font-size: 14px;
-  font-weight: bold;
+  border-radius: 0.8em;
+  font-size: 11px;
+  font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 15px rgba(20, 156, 234, 0.3), inset 0 0 15px rgba(20, 156, 234, 0.1);
-  padding: 8px 12px;
+  padding: 8px 16px;
+  white-space: nowrap;
+  vertical-align: middle;
 }
 
 .btn-history::after {
   content: "";
   position: absolute;
-  top: -8px;
+  top: -6px;
   left: 3%;
   width: 94%;
   height: 35%;
   background-color: #000;
   transition: 0.5s;
   transform-origin: center;
-  border-radius: 0.3em 0.3em 0 0;
+  border-radius: 0.8em 0.8em 0 0;
 }
 
 .btn-history::before {
@@ -363,7 +407,7 @@ header nav a:active .circle {
   height: 35%;
   background-color: #000;
   transition: 0.5s;
-  border-radius: 0 0 0.3em 0.3em;
+  border-radius: 0 0 0.8em 0.8em;
 }
 
 .btn-history:hover {
@@ -384,10 +428,10 @@ header nav a:active .circle {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 10px 20px;
+  padding: 9px 18px;
   border: 4px solid;
   border-color: transparent;
-  font-size: 13px;
+  font-size: 11px;
   background-color: #ffffff;
   border-radius: 100px;
   font-weight: 600;
@@ -397,21 +441,21 @@ header nav a:active .circle {
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   text-decoration: none;
-  width: 8em;
-  height: 2.8em;
+  width: 7.8em;
+  height: 2.4em;
   justify-content: center;
 }
 
 .btn-contact svg {
   position: absolute;
-  width: 20px;
+  width: 16px;
   fill: #1f387e;
   z-index: 9;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .btn-contact .arr-1 {
-  right: 16px;
+  right: 12px;
 }
 
 .btn-contact .arr-2 {
@@ -434,7 +478,7 @@ header nav a:active .circle {
 .btn-contact .text {
   position: relative;
   z-index: 1;
-  transform: translateX(-12px);
+  transform: translateX(-10px);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -449,11 +493,11 @@ header nav a:active .circle {
 }
 
 .btn-contact:hover .arr-2 {
-  left: 16px;
+  left: 14px;
 }
 
 .btn-contact:hover .text {
-  transform: translateX(12px);
+  transform: translateX(10px);
 }
 
 .btn-contact:hover svg {
@@ -466,12 +510,535 @@ header nav a:active .circle {
 }
 
 .btn-contact:hover .circle {
-  width: 220px;
-  height: 220px;
+  width: 180px;
+  height: 180px;
   opacity: 1;
 }
 
-/* Updated footer positioning */
+/* Home Section Spacing */
+#home {
+  margin-bottom: 150px;
+  position: relative;
+}
+
+/* About Me Section - Updated Layout */
+.about-section {
+  position: relative;
+  padding: 80px 50px;
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 10;
+  margin-top: 100px;
+}
+
+.about-content {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  padding: 25px 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  max-width: 630px;
+  height: 200px;
+  position: relative;
+}
+
+.about-title {
+  font-size: 22px;
+  font-weight: 600;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 15px;
+}
+
+.about-text {
+  font-family: "AnonymicePro Nerd Font", monospace;
+  font-size: 23px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 630px 1fr;
+  gap: 40px;
+  align-items: start;
+  position: relative;
+}
+
+/* GitHub Stats */
+.github-stats {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+.github-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.github-header h3 {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.github-chart {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contributions {
+  display: grid;
+  grid-template-columns: repeat(53, 8px);
+  gap: 2px;
+  margin: 10px 0;
+}
+
+.day {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: #161b22;
+}
+
+.day.level-1 { background: #0e4429; }
+.day.level-2 { background: #006d32; }
+.day.level-3 { background: #26a641; }
+.day.level-4 { background: #39d353; }
+
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #7d8590;
+  margin-top: 8px;
+}
+
+.legend-scale {
+  display: flex;
+  gap: 2px;
+}
+
+/* Pixel Character - Fixed Position */
+.pixel-character {
+  position: absolute;
+  top: 120px;
+  right: 50px;
+  z-index: 15;
+}
+
+#ghost {
+  position: relative;
+  scale: 0.4;
+}
+
+#red {
+  animation: upNDown infinite 0.5s;
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas:
+    "a1  a2  a3  a4  a5  top0  top0  top0  top0  a10 a11 a12 a13 a14"
+    "b1  b2  b3  top1 top1 top1 top1 top1 top1 top1 top1 b12 b13 b14"
+    "c1 c2 top2 top2 top2 top2 top2 top2 top2 top2 top2 top2 c13 c14"
+    "d1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 d14"
+    "e1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 e14"
+    "f1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 f14"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "st0 st0 an4 st1 an7 st2 an10 an10 st3 an13 st4 an16 st5 st5"
+    "an1 an2 an3 an5 an6 an8 an9 an9 an11 an12 an14 an15 an17 an18";
+}
+
+@keyframes upNDown {
+  0%, 49% { transform: translateY(0px); }
+  50%, 100% { transform: translateY(-10px); }
+}
+
+#top0, #top1, #top2, #top3, #top4, #st0, #st1, #st2, #st3, #st4, #st5 { background-color: red; }
+#top0 { grid-area: top0; }
+#top1 { grid-area: top1; }
+#top2 { grid-area: top2; }
+#top3 { grid-area: top3; }
+#top4 { grid-area: top4; }
+#st0 { grid-area: st0; }
+#st1 { grid-area: st1; }
+#st2 { grid-area: st2; }
+#st3 { grid-area: st3; }
+#st4 { grid-area: st4; }
+#st5 { grid-area: st5; }
+
+#an1 { grid-area: an1; animation: flicker0 infinite 0.5s; }
+#an18 { grid-area: an18; animation: flicker0 infinite 0.5s; }
+#an2 { grid-area: an2; animation: flicker1 infinite 0.5s; }
+#an17 { grid-area: an17; animation: flicker1 infinite 0.5s; }
+#an3 { grid-area: an3; animation: flicker1 infinite 0.5s; }
+#an16 { grid-area: an16; animation: flicker1 infinite 0.5s; }
+#an4 { grid-area: an4; animation: flicker1 infinite 0.5s; }
+#an15 { grid-area: an15; animation: flicker1 infinite 0.5s; }
+#an6 { grid-area: an6; animation: flicker0 infinite 0.5s; }
+#an12 { grid-area: an12; animation: flicker0 infinite 0.5s; }
+#an7 { grid-area: an7; animation: flicker0 infinite 0.5s; }
+#an13 { grid-area: an13; animation: flicker0 infinite 0.5s; }
+#an9 { grid-area: an9; animation: flicker1 infinite 0.5s; }
+#an10 { grid-area: an10; animation: flicker1 infinite 0.5s; }
+#an8 { grid-area: an8; animation: flicker0 infinite 0.5s; }
+#an11 { grid-area: an11; animation: flicker0 infinite 0.5s; }
+
+@keyframes flicker0 {
+  0%, 49% { background-color: red; }
+  50%, 100% { background-color: transparent; }
+}
+
+@keyframes flicker1 {
+  0%, 49% { background-color: transparent; }
+  50%, 100% { background-color: red; }
+}
+
+#eye {
+  width: 40px; height: 50px; position: absolute; top: 30px; left: 10px;
+}
+#eye::before { content: ""; background-color: white; width: 20px; height: 50px; transform: translateX(10px); display: block; position: absolute; }
+#eye::after { content: ""; background-color: white; width: 40px; height: 30px; transform: translateY(10px); display: block; position: absolute; }
+
+#eye1 {
+  width: 40px; height: 50px; position: absolute; top: 30px; right: 30px;
+}
+#eye1::before { content: ""; background-color: white; width: 20px; height: 50px; transform: translateX(10px); display: block; position: absolute; }
+#eye1::after { content: ""; background-color: white; width: 40px; height: 30px; transform: translateY(10px); display: block; position: absolute; }
+
+#pupil {
+  width: 20px; height: 20px; background-color: blue; position: absolute; top: 50px; left: 10px; z-index: 1; animation: eyesMovement infinite 3s;
+}
+
+#pupil1 {
+  width: 20px; height: 20px; background-color: blue; position: absolute; top: 50px; right: 50px; z-index: 1; animation: eyesMovement infinite 3s;
+}
+
+@keyframes eyesMovement {
+  0%, 49% { transform: translateX(0px); }
+  50%, 99% { transform: translateX(10px); }
+  100% { transform: translateX(0px); }
+}
+
+#shadow {
+  background-color: black; width: 140px; height: 140px; position: absolute; border-radius: 50%; transform: rotateX(80deg); filter: blur(20px); top: 80%; animation: shadowMovement infinite 0.5s;
+}
+
+@keyframes shadowMovement {
+  0%, 49% { opacity: 0.5; }
+  50%, 100% { opacity: 0.2; }
+}
+
+/* GitHub PR Card - Fixed Animations */
+.github-pr-card {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  border-radius: 1em;
+}
+
+.card-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.spin {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0.8;
+}
+
+.spin-blur {
+  background: conic-gradient(from 0deg, #ff0080, #8000ff, #0080ff, #00ff80, #ff8000, #ff0080);
+  filter: blur(1em);
+  animation: spin 2s linear infinite;
+}
+
+.spin-intense {
+  background: conic-gradient(from 0deg, #ff0080, transparent, #8000ff, transparent, #0080ff, transparent);
+  animation: spin 1s linear infinite reverse;
+}
+
+.spin-inside {
+  background: conic-gradient(from 0deg, #ff0080, #8000ff, #0080ff);
+  filter: blur(0.5em);
+  animation: spin 3s linear infinite;
+  opacity: 0.4;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0.25em;
+  border-radius: inherit;
+  background: #111215;
+  z-index: 1;
+}
+
+.card-border {
+  position: absolute;
+  inset: 0;
+  background: #0005;
+  border-radius: inherit;
+  z-index: 2;
+}
+
+.card {
+  position: absolute;
+  inset: 0.125em;
+  border-radius: 0.875em;
+  background: #111215;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  overflow: hidden;
+  z-index: 3;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.header {
+  background: #0b0d10;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid #1d1f23;
+}
+
+.top-header {
+  background: #0b0d10;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  padding-top: 10px;
+}
+
+.repo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.repo > a, .repo > span {
+  text-decoration: none;
+  color: #bebebe;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.repo-slash {
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.repo-name {
+  color: #fff;
+  font-weight: 400;
+}
+
+.gh-icon, .gh-icon svg {
+  height: 2em;
+  fill: #fff;
+}
+
+.space {
+  flex-grow: 1;
+}
+
+.icon {
+  cursor: pointer;
+  display: flex;
+  height: 1.5em;
+  width: 1.5em;
+  padding: 0.25em;
+  border-radius: 0.25em;
+  fill: #797d86;
+  outline: 1px solid #303236;
+  transition: 0.3s;
+}
+
+.icon:hover {
+  background: hsl(0 0 100 / 7%);
+}
+
+.icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+.pfp {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+}
+
+.btm-header {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 10px;
+  gap: 8px;
+  color: #fff;
+  fill: #fff;
+}
+
+.tab {
+  position: relative;
+  padding: 4px 4px;
+  padding-bottom: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  isolation: isolate;
+  color: #797d86;
+}
+
+.tab-icon {
+  width: 1em;
+  height: 1.25em;
+  fill: #797d86;
+}
+
+.tab.active {
+  border-bottom: 2px solid #e98463;
+  color: #fff;
+}
+
+.tab.active .tab-icon {
+  fill: #fff;
+}
+
+.tab::before {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  opacity: 0;
+  inset: 0;
+  bottom: 8px;
+  z-index: -1;
+  transition: 0.3s;
+}
+
+.tab:hover::before {
+  opacity: 1;
+}
+
+.content {
+  flex: 1;
+  padding: 12px;
+}
+
+.prs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pr {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pr:last-child {
+  border-bottom: none;
+}
+
+.pr label {
+  display: flex;
+  cursor: pointer;
+}
+
+.pr input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #444;
+  border-radius: 3px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.pr input[type="checkbox"]:checked + .checkbox {
+  background: #0969da;
+  border-color: #0969da;
+}
+
+.pr input[type="checkbox"]:checked + .checkbox::after {
+  content: "✓";
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.pr-icon {
+  width: 16px;
+  height: 16px;
+  fill: #0969da;
+}
+
+.pr-text {
+  flex: 1;
+}
+
+.pr-title {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.pr-title:hover {
+  color: #58a6ff;
+}
+
+.pr-desc {
+  color: #7d8590;
+  font-size: 12px;
+}
+
+/* Footer */
 .site-footer {
   position: relative;
   z-index: 10;
@@ -479,4 +1046,5 @@ header nav a:active .circle {
   padding: 20px;
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
+  margin-top: 50px;
 }
